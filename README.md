@@ -25,7 +25,7 @@ This project will be made using react native, firebase firestore, firebase stora
 ## ➕ Features
 
 Currently the project has the following features:
-  * expo boilerplate
+  * expo boilerplate - https://www.youtube.com/watch?v=HrN1Fvjp2CE&ab_channel=SimCoder
   * Auth system 
 
 features to be implmeneted:
