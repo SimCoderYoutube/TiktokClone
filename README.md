@@ -27,6 +27,8 @@ This project will be made using react native, firebase firestore, firebase stora
 Currently the project has the following features:
   * expo boilerplate
   * Auth system 
+
+features to be implmeneted:
   * Post Videos
     * Take pictures directly in app
     * Choose from gallery
