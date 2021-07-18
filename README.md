@@ -25,8 +25,8 @@ This project will be made using react native, firebase firestore, firebase stora
 ## ➕ Features
 
 Currently the project has the following features:
-  * expo boilerplate
-  * Auth system 
+  * expo boilerplate - https://www.youtube.com/watch?v=HrN1Fvjp2CE&t=34s
+  * Auth system - https://www.youtube.com/watch?v=o9RlmRf4tqI
 
 features to be implmeneted:
   * Post Videos
