@@ -17,7 +17,7 @@ export default function AuthScreen() {
     return (
         <View style={styles.container}>
             {detailsPage ?
-                <AuthDetails setDetailsPage={setDetailsPage} />
+                <AuthDetails authPage={authPage} setDetailsPage={setDetailsPage} />
                 :
                 <AuthMenu authPage={authPage} setAuthPage={setAuthPage} setDetailsPage={setDetailsPage} />
             }
