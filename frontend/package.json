@@ -28,7 +28,11 @@
     "react-native-web": "~0.13.12",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "expo-camera": "~11.0.2",
+    "expo-image-picker": "~10.1.4",
+    "expo-media-library": "~12.0.2",
+    "expo-av": "~9.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
