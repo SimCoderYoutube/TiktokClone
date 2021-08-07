@@ -27,11 +27,11 @@ This project will be made using react native, firebase firestore, firebase stora
 Currently the project has the following features:
   * expo boilerplate - https://www.youtube.com/watch?v=HrN1Fvjp2CE&t=34s
   * Auth system - https://www.youtube.com/watch?v=o9RlmRf4tqI
+  * Post Videos
+    * Take pictures directly in app - https://www.youtube.com/watch?v=JCIlJ9KB2_k
+    * Choose from gallery - https://www.youtube.com/watch?v=JCIlJ9KB2_k
 
 features to be implmeneted:
-  * Post Videos
-    * Take pictures directly in app
-    * Choose from gallery
   * Profile page
   * Follow/Unfollow users
   * Feed in chronological order
