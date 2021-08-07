@@ -45,7 +45,6 @@ export const register = (email, password) => dispatch => new Promise((resolve, r
             resolve()
         })
         .catch((error) => {
-            console.log(error)
             reject(error)
         })
 })

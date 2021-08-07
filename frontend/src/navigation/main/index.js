@@ -17,7 +17,6 @@ export default function Route() {
     useEffect(() => {
         dispatch(userAuthStateListener());
     }, [])
-    console.log(currentUserObj)
 
     if (!currentUserObj.loaded) {
         return (
