@@ -8,6 +8,7 @@ import { useIsFocused } from '@react-navigation/core'
 import { Feather } from '@expo/vector-icons'
 
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native'
 
 
 /**
@@ -30,6 +31,7 @@ export default function CameraScreen() {
     const [isCameraReady, setIsCameraReady] = useState(false)
     const isFocused = useIsFocused()
 
+    const navigation = useNavigation()
     useEffect(() => {
         (async () => {
             const cameraStatus = await Camera.requestPermissionsAsync()
@@ -57,7 +59,7 @@ export default function CameraScreen() {
                 if (videoRecordPromise) {
                     const data = await videoRecordPromise;
                     const source = data.uri
-                    //TODO: pass video uri into save component
+                    navigation.navigate('savePost', { source })
                 }
             } catch (error) {
                 console.warn(error)
@@ -78,8 +80,9 @@ export default function CameraScreen() {
             aspect: [16, 9],
             quality: 1
         })
+        console.log(result)
         if (!result.cancelled) {
-            //TODO: pass video uri into save component
+            navigation.navigate('savePost', { source: result.uri })
         }
     }
 
