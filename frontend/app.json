@@ -29,14 +29,14 @@
       "favicon": "./assets/favicon.png",
       "config": {
         "firebase": {
-          "apiKey": "***",
-          "authDomain": "***",
-          "databaseURL": "***",
-          "projectId": "***",
-          "storageBucket": "***",
-          "messagingSenderId": "***",
-          "appId": "***",
-          "measurementId": "***K"
+          "apiKey": "****",
+          "authDomain": "****",
+          "databaseURL": "****",
+          "projectId": "****",
+          "storageBucket": "****",
+          "messagingSenderId": "****",
+          "appId": "****",
+          "measurementId": "****"
         }
       }
     }
