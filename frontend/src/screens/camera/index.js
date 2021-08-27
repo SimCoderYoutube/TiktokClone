@@ -4,6 +4,8 @@ import { Camera } from 'expo-camera'
 import { Audio } from 'expo-av'
 import * as ImagePicker from 'expo-image-picker'
 import * as MediaLibrary from 'expo-media-library'
+import * as VideoThumbnails from 'expo-video-thumbnails';
+
 import { useIsFocused } from '@react-navigation/core'
 import { Feather } from '@expo/vector-icons'
 
@@ -59,7 +61,8 @@ export default function CameraScreen() {
                 if (videoRecordPromise) {
                     const data = await videoRecordPromise;
                     const source = data.uri
-                    navigation.navigate('savePost', { source })
+                    let sourceThumb = await generateThumbnail(source)
+                    navigation.navigate('savePost', { source, sourceThumb })
                 }
             } catch (error) {
                 console.warn(error)
@@ -80,11 +83,25 @@ export default function CameraScreen() {
             aspect: [16, 9],
             quality: 1
         })
-        console.log(result)
         if (!result.cancelled) {
-            navigation.navigate('savePost', { source: result.uri })
+            let sourceThumb = await generateThumbnail(result.uri)
+            navigation.navigate('savePost', { source: result.uri, sourceThumb })
         }
     }
+
+    const generateThumbnail = async (source) => {
+        try {
+            const { uri } = await VideoThumbnails.getThumbnailAsync(
+                source,
+                {
+                    time: 5000,
+                }
+            );
+            return uri;
+        } catch (e) {
+            console.warn(e);
+        }
+    };
 
     if (!hasCameraPermissions || !hasAudioPermissions || !hasGalleryPermissions) {
         return (

@@ -14,7 +14,7 @@ export default function SavePostScreen(props) {
     const dispatch = useDispatch();
     const handleSavePost = () => {
         setRequestRunning(true)
-        dispatch(createPost(description, props.route.params.source))
+        dispatch(createPost(description, props.route.params.source, props.route.params.sourceThumb))
             .then(() => navigation.dispatch(StackActions.popToTop()))
             .catch(() => setRequestRunning(false))
     }
