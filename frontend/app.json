@@ -29,14 +29,14 @@
       "favicon": "./assets/favicon.png",
       "config": {
         "firebase": {
-          "apiKey": "AIzaSyAN1v25_uLQJtuX8AiPdF0pa_kZIFxPw3w",
-          "authDomain": "tiktok-4bd2a.firebaseapp.com",
-          "databaseURL": "https://tiktok-4bd2a-default-rtdb.firebaseio.com",
-          "projectId": "tiktok-4bd2a",
-          "storageBucket": "tiktok-4bd2a.appspot.com",
-          "messagingSenderId": "134821111588",
-          "appId": "1:134821111588:web:ffb13bbfb6caca76e635b1",
-          "measurementId": "G-FLKVD5RBXK"
+          "apiKey": "****",
+          "authDomain": "****",
+          "databaseURL": "****",
+          "projectId": "****",
+          "storageBucket": "****",
+          "messagingSenderId": "****",
+          "appId": "****",
+          "measurementId": "****"
         }
       }
     }
