@@ -30,9 +30,9 @@ Currently the project has the following features:
   * Post Videos
     * Take pictures directly in app - https://www.youtube.com/watch?v=JCIlJ9KB2_k
     * Choose from gallery - https://www.youtube.com/watch?v=JCIlJ9KB2_k
+  * Profile page - https://www.youtube.com/watch?v=Izz-yYDdHWk&ab
 
 features to be implmeneted:
-  * Profile page
   * Follow/Unfollow users
   * Feed in chronological order
   * Search Users
