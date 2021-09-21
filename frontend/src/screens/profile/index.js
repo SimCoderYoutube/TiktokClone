@@ -16,7 +16,6 @@ export default function ProfileScreen() {
                 <ProfileHeader user={currentUser} />
                 <ProfilePostList posts={currentUserPosts} />
             </ScrollView>
-
         </View>
     )
 }

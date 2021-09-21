@@ -1,6 +1,6 @@
 
 import firebase from 'firebase'
-import { saveMediaToStorage } from './random'
+import { saveMediaToStorage } from '../../services/random'
 require('firebase/firebase-auth')
 require('firebase/firestore')
 import uuid from 'uuid-random'

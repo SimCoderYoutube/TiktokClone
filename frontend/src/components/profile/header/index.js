@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { Avatar } from 'react-native-paper'
@@ -5,6 +6,7 @@ import { buttonStyles } from '../../../styles'
 import styles from './styles'
 
 export default function ProfileHeader({ user }) {
+    const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <Avatar.Icon size={80} icon={"account"} />
@@ -23,7 +25,10 @@ export default function ProfileHeader({ user }) {
                     <Text style={styles.counterLabelText}>Likes</Text>
                 </View>
             </View>
-            <TouchableOpacity style={buttonStyles.grayOutlinedButton}>
+            <TouchableOpacity
+                style={buttonStyles.grayOutlinedButton}
+                onPress={() => navigation.navigate('editProfile')}
+            >
                 <Text>Edit Profile</Text>
             </TouchableOpacity>
         </View>
