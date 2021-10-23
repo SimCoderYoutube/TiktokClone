@@ -23,3 +23,25 @@ export const saveUserField = (field, value) => new Promise((resolve, reject) => 
         .then(() => resolve())
         .catch(() => reject())
 })
+
+
+export const queryUsersByEmail = (email) => new Promise((resolve, reject) => {
+    if (email === '') {
+        resolve([])
+    }
+
+    firebase.firestore()
+        .collection('user')
+        .where('email', '>=', email)
+        .where('email', '<=', email + '\uf8ff')
+        .get()
+        .then((snapshot) => {
+            let users = snapshot.docs.map(doc => {
+                const data = doc.data();
+                const id = doc.id;
+                return { id, ...data }
+            })
+            resolve(users)
+        })
+        .catch(() => reject())
+})
