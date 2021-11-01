@@ -1,6 +1,8 @@
 import { Video } from 'expo-av'
 import React, { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 import { View, Text } from 'react-native'
+import { useUser } from '../../../hooks/useUser'
+import PostSingleOverlay from './overlay'
 import styles from './styles'
 
 /**
@@ -12,6 +14,7 @@ import styles from './styles'
  */
 export const PostSingle = forwardRef(({ item }, parentRef) => {
     const ref = useRef(null);
+    const user = useUser(item.creator).data
     useImperativeHandle(parentRef, () => ({
         play,
         unload,
@@ -94,16 +97,19 @@ export const PostSingle = forwardRef(({ item }, parentRef) => {
     }
 
     return (
-        <Video
-            ref={ref}
-            style={styles.container}
-            resizeMode={Video.RESIZE_MODE_COVER}
-            shouldPlay={false}
-            isLooping
-            usePoster
-            posterSource={{ uri: item.media[1] }}
-            posterStyle={{ resizeMode: 'cover', height: '100%' }}
-            source={{ uri: item.media[0] }} />
+        <>
+            <PostSingleOverlay user={user} post={item} />
+            <Video
+                ref={ref}
+                style={styles.container}
+                resizeMode={Video.RESIZE_MODE_COVER}
+                shouldPlay={false}
+                isLooping
+                usePoster
+                posterSource={{ uri: item.media[1] }}
+                posterStyle={{ resizeMode: 'cover', height: '100%' }}
+                source={{ uri: item.media[0] }} />
+        </>
     )
 })
 

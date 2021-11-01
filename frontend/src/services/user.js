@@ -45,3 +45,15 @@ export const queryUsersByEmail = (email) => new Promise((resolve, reject) => {
         })
         .catch(() => reject())
 })
+
+
+export const getUserById = (id) => new Promise((resolve, reject) => {
+    firebase.firestore()
+        .collection('user')
+        .doc(id)
+        .get()
+        .then((snapshot) => {
+            resolve(snapshot.exists ? snapshot.data() : null)
+        })
+        .catch(() => reject())
+})
