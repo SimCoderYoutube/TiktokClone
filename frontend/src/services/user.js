@@ -45,3 +45,20 @@ export const queryUsersByEmail = (email) => new Promise((resolve, reject) => {
         })
         .catch(() => reject())
 })
+
+/**
+ * fetches the doc corresponding to the id of a user.
+ * 
+ * @param {String} id of the user we want to fetch 
+ * @returns {Promise<Object>} user object if successful.
+ */
+export const getUserById = (id) => new Promise((resolve, reject) => {
+    firebase.firestore()
+        .collection('user')
+        .doc(id)
+        .get()
+        .then((snapshot) => {
+            resolve(snapshot.exists ? snapshot.data() : null)
+        })
+        .catch(() => reject())
+})

@@ -1,6 +1,7 @@
 import Constants from 'expo-constants';
 import * as firebase from 'firebase';
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
@@ -19,10 +20,16 @@ if (firebase.apps.length === 0) {
   firebase.app()
 }
 
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { refetchInterval: false, staleTime: Infinity } }
+})
+
 export default function App() {
   return (
     <Provider store={store} >
-      <Route />
+      <QueryClientProvider client={queryClient}>
+        <Route />
+      </QueryClientProvider>
     </Provider>
   );
 }
