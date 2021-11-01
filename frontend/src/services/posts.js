@@ -1,4 +1,10 @@
 import firebase from 'firebase'
+
+/**
+ * Returns all the posts in the database.
+ * 
+ * @returns {Promise<[<Object>]>} post list if successful.
+ */
 export const getFeed = () => new Promise((resolve, reject) => {
     firebase
         .firestore()

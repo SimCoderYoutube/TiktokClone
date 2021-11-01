@@ -3,6 +3,13 @@ import React, { forwardRef, useEffect, useImperativeHandle, useRef } from 'react
 import { View, Text } from 'react-native'
 import styles from './styles'
 
+/**
+ * This component is responsible for displaying a post and play the 
+ * media associated with it.
+ * 
+ * The ref is forwarded to this component so that the parent component
+ * can manage the play status of the video.
+ */
 export const PostSingle = forwardRef(({ item }, parentRef) => {
     const ref = useRef(null);
     useImperativeHandle(parentRef, () => ({
@@ -15,10 +22,19 @@ export const PostSingle = forwardRef(({ item }, parentRef) => {
         return () => unload();
     }, [])
 
+
+    /**
+     * Plays the video in the component if the ref
+     * of the video is not null.
+     * 
+     * @returns {void} 
+     */
     const play = async () => {
         if (ref.current == null) {
             return;
         }
+
+        // if video is already playing return
         const status = await ref.current.getStatusAsync();
         if (status?.isPlaying) {
             return;
@@ -30,10 +46,19 @@ export const PostSingle = forwardRef(({ item }, parentRef) => {
         }
     }
 
+
+    /**
+     * Stops the video in the component if the ref
+     * of the video is not null.
+     * 
+     * @returns {void} 
+     */
     const stop = async () => {
         if (ref.current == null) {
             return;
         }
+
+        // if video is already stopped return
         const status = await ref.current.getStatusAsync();
         if (!status?.isPlaying) {
             return;
@@ -45,10 +70,22 @@ export const PostSingle = forwardRef(({ item }, parentRef) => {
         }
     }
 
+
+    /**
+     * Unloads the video in the component if the ref
+     * of the video is not null.
+     * 
+     * This will make sure unnecessary video instances are
+     * not in memory at all times 
+     * 
+     * @returns {void} 
+     */
     const unload = async () => {
         if (ref.current == null) {
             return;
         }
+
+        // if video is already stopped return
         try {
             await ref.current.unloadAsync();
         } catch (e) {
