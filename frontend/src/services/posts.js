@@ -17,5 +17,5 @@ export const getFeed = () => new Promise((resolve, reject) => {
                 return { id, ...data }
             })
             resolve(posts)
-        }).catch(reject())
+        })
 })

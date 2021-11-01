@@ -2,12 +2,12 @@ import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './styles'
-import NavBarGeneral from '../../../components/general/navbar'
 import { Feather } from '@expo/vector-icons'
 import * as ImagePicker from 'expo-image-picker'
 import { saveUserProfileImage } from '../../../services/user'
 import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
+import NavBarGeneral from '../../../components/general/navBar'
 
 
 export default function EditProfileScreen() {
@@ -26,7 +26,7 @@ export default function EditProfileScreen() {
     }
     return (
         <SafeAreaView style={styles.container}>
-            <NavBarGeneral />
+            <NavBarGeneral/>
             <View style={styles.imageContainer}>
                 <TouchableOpacity
                     style={styles.imageViewContainer}
