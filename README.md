@@ -31,11 +31,10 @@ Currently the project has the following features:
     * Take pictures directly in app - https://www.youtube.com/watch?v=JCIlJ9KB2_k
     * Choose from gallery - https://www.youtube.com/watch?v=JCIlJ9KB2_k
   * Profile page - https://www.youtube.com/watch?v=Izz-yYDdHWk&ab
-
+  * Feed in chronological order - https://www.youtube.com/watch?v=5gPvi3iXIdM&ab_channel=SimCoder
+  * Search Users - https://www.youtube.com/watch?v=tpPrw8lA6CU&feature=youtu.be&ab_channel=SimCoder
 features to be implmeneted:
   * Follow/Unfollow users
-  * Feed in chronological order
-  * Search Users
   * Comment Posts
   * Like video
   * Redesign
