@@ -23,20 +23,22 @@ This project will be made using react native, firebase firestore, firebase stora
 <br>
 
 ## ➕ Features
+In here you'll find a list of all the features implemented in this project and the youtube tutorial for a detailed explanation of each one of them. However you can see the full series of how to make this project in the following [youtube playlist](https://www.youtube.com/playlist?list=PLxabZQCAe5fjzyawndGLeP1GkJTAjZlKL)
 
 Currently the project has the following features:
-  * expo boilerplate - https://www.youtube.com/watch?v=HrN1Fvjp2CE&t=34s
-  * Auth system - https://www.youtube.com/watch?v=o9RlmRf4tqI
+  * [expo boilerplate](https://www.youtube.com/watch?v=HrN1Fvjp2CE)
+  * [Auth system](https://www.youtube.com/watch?v=o9RlmRf4tqI)
   * Post Videos
-    * Take pictures directly in app - https://www.youtube.com/watch?v=JCIlJ9KB2_k
-    * Choose from gallery - https://www.youtube.com/watch?v=JCIlJ9KB2_k
-  * Profile page - https://www.youtube.com/watch?v=Izz-yYDdHWk&ab
-  * Feed in chronological order - https://www.youtube.com/watch?v=5gPvi3iXIdM&ab_channel=SimCoder
-  * Search Users - https://www.youtube.com/watch?v=tpPrw8lA6CU&feature=youtu.be&ab_channel=SimCoder
-features to be implmeneted:
+    * [Take pictures directly in app](https://www.youtube.com/watch?v=JCIlJ9KB2_k)
+    * [Choose from gallery](https://www.youtube.com/watch?v=JCIlJ9KB2_k)
+  * [Profile page](https://www.youtube.com/watch?v=Izz-yYDdHWk&ab)
+  * [Feed in chronological order](https://www.youtube.com/watch?v=5gPvi3iXIdM&ab_channel=SimCoder)
+  * [Search Users](https://www.youtube.com/watch?v=tpPrw8lA6CU&feature=youtu.be&ab_channel=SimCoder)
+  * [Like video](https://www.youtube.com/watch?v=YPGjWCWcboc&ab_channel=SimCoder)
+
+Features to be implmeneted:
   * Follow/Unfollow users
   * Comment Posts
-  * Like video
   * Redesign
   
 <br>
