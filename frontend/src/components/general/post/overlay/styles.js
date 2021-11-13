@@ -6,9 +6,12 @@ const styles = StyleSheet.create({
         position: 'absolute',
         zIndex: 999,
         bottom: 0,
-        padding: 20,
+        paddingLeft: 20,
+        paddingBottom: 20,
+        paddingRight: 10,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'flex-end'
     },
     displayName: {
         color: 'white',
@@ -25,6 +28,18 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         borderWidth: 2,
         borderColor: 'white'
+    },
+    leftContainer: {
+        alignItems: 'center'
+    },
+    actionButton: {
+        padding: 10,
+        marginTop: 16
+    },
+    actionButtonText: {
+        color: 'white',
+        textAlign: 'center',
+        marginTop: 4
     }
 })
 

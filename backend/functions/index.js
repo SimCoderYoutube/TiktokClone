@@ -11,3 +11,22 @@ exports.newUser = functions.auth.user().onCreate((user) => {
         .doc(user.uid)
         .create(JSON.parse(JSON.stringify(user)))
 })
+
+
+exports.likeCreate = functions.firestore.document('post/{id}/likes/{uid}').onCreate((_, context) => {
+    return db
+        .collection("post")
+        .doc(context.params.id)
+        .update({
+            likesCount: admin.firestore.FieldValue.increment(1)
+        })
+})
+
+exports.likeDelete = functions.firestore.document('post/{id}/likes/{uid}').onDelete((_, context) => {
+    return db
+        .collection("post")
+        .doc(context.params.id)
+        .update({
+            likesCount: admin.firestore.FieldValue.increment(-1)
+        })
+})
