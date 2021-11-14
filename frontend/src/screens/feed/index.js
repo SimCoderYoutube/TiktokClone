@@ -48,7 +48,7 @@ export default function FeedScreen() {
      */
     const renderItem = ({ item, index }) => {
         return (
-            <View style={[{ flex: 1, height: Dimensions.get('window').height - 54 }, index % 2 == 0 ? { backgroundColor: 'blue' } : { backgroundColor: 'pink' }]}>
+            <View style={{ flex: 1, height: Dimensions.get('window').height, backgroundColor: 'black' }}>
                 <PostSingle item={item} ref={PostSingleRef => (mediaRefs.current[item.id] = PostSingleRef)} />
             </View>
         )

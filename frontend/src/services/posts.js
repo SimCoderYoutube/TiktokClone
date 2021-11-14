@@ -1,5 +1,6 @@
 import firebase from "firebase";
 
+let commentListnerInstance = null
 /**
  * Returns all the posts in the database.
  *
@@ -65,3 +66,41 @@ export const updateLike = (postId, uid, currentLikeState) => {
       .set({});
   }
 };
+
+export const addComment = (postId, creator, comment) => {
+  firebase.firestore()
+    .collection('post')
+    .doc(postId)
+    .collection('comments')
+    .add({
+      creator,
+      comment,
+      creation: firebase.firestore.FieldValue.serverTimestamp(),
+    })
+}
+
+export const commentListner = (postId, setCommentList) => {
+  commentListnerInstance = firebase.firestore()
+    .collection('post')
+    .doc(postId)
+    .collection('comments')
+    .orderBy('creation', 'desc')
+    .onSnapshot((snapshot) => {
+      if (snapshot.docChanges().length == 0) {
+        return;
+      }
+      let comments = snapshot.docs.map((value) => {
+        const id = value.id;
+        const data = value.data();
+        return { id, ...data }
+      })
+      setCommentList(comments)
+    })
+}
+
+export const clearCommentListener = () => {
+  if (commentListnerInstance != null) {
+    commentListnerInstance();
+    commentListnerInstance = null
+  }
+}
