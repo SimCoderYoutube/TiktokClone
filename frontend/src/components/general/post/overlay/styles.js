@@ -27,14 +27,14 @@ const styles = StyleSheet.create({
         width: 50,
         borderRadius: 25,
         borderWidth: 2,
-        borderColor: 'white'
+        borderColor: 'white',
+        marginBottom: 30
     },
     leftContainer: {
         alignItems: 'center'
     },
     actionButton: {
-        padding: 10,
-        marginTop: 16
+        paddingBottom: 16
     },
     actionButtonText: {
         color: 'white',
