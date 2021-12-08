@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Dimensions, FlatList, View } from 'react-native'
 import PostSingle from '../../components/general/post'
-import { getFeed } from '../../services/posts'
+import { getFeed, getPostsByUserId } from '../../services/posts'
 import styles from './styles'
 
 /**
@@ -11,12 +11,17 @@ import styles from './styles'
  * On start make fetch for posts then use a flatList 
  * to display/control the posts.
  */
-export default function FeedScreen() {
+export default function FeedScreen({ route }) {
+    const { setCurrentUserProfileItemInView, creator, profile } = route.params
     const [posts, setPosts] = useState([])
     const mediaRefs = useRef([])
 
     useEffect(() => {
-        getFeed().then(setPosts)
+        if (profile) {
+            getPostsByUserId(creator).then(setPosts)
+        } else {
+            getFeed().then(setPosts)
+        }
     }, [])
 
 
@@ -30,6 +35,9 @@ export default function FeedScreen() {
             const cell = mediaRefs.current[element.key]
             if (cell) {
                 if (element.isViewable) {
+                    if (!profile) {
+                        setCurrentUserProfileItemInView(element.item.creator)
+                    }
                     cell.play()
                 } else {
                     cell.stop()
@@ -48,7 +56,7 @@ export default function FeedScreen() {
      */
     const renderItem = ({ item, index }) => {
         return (
-            <View style={{ flex: 1, height: Dimensions.get('window').height, backgroundColor: 'black' }}>
+            <View style={{ height: Dimensions.get('window').height, backgroundColor: 'black' }}>
                 <PostSingle item={item} ref={PostSingleRef => (mediaRefs.current[item.id] = PostSingleRef)} />
             </View>
         )
@@ -63,7 +71,7 @@ export default function FeedScreen() {
                 maxToRenderPerBatch={2}
                 removeClippedSubviews
                 viewabilityConfig={{
-                    itemVisiblePercentThreshold: 100
+                    itemVisiblePercentThreshold: 0
                 }}
                 renderItem={renderItem}
                 pagingEnabled
