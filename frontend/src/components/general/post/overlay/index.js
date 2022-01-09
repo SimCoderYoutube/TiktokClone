@@ -6,6 +6,7 @@ import { getLikeById, updateLike } from "../../../../services/posts";
 import { useDispatch, useSelector } from "react-redux";
 import { throttle } from "throttle-debounce";
 import { openCommentModal } from '../../../../redux/actions/modal';
+import { useNavigation } from '@react-navigation/core';
 
 /**
  * Function that renders a component meant to be overlapped on
@@ -18,6 +19,7 @@ import { openCommentModal } from '../../../../redux/actions/modal';
 export default function PostSingleOverlay({ user, post }) {
   const currentUser = useSelector((state) => state.auth.currentUser);
   const dispatch = useDispatch()
+  const navigation = useNavigation()
   const [currentLikeState, setCurrentLikeState] = useState({
     state: false,
     counter: post.likesCount,
@@ -61,7 +63,11 @@ export default function PostSingleOverlay({ user, post }) {
       </View>
 
       <View style={styles.leftContainer}>
-        <Image style={styles.avatar} source={{ uri: user?.photoURL }} />
+        <TouchableOpacity
+          onPress={() => navigation.navigate('profileOther', { initialUserId: user?.uid })}>
+          <Image style={styles.avatar} source={{ uri: user?.photoURL }} />
+        </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.actionButton}
           onPress={() => handleUpdateLike(currentLikeState)}

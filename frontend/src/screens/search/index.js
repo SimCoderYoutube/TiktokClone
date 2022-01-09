@@ -5,11 +5,12 @@ import SearchUserItem from '../../components/search/userItem'
 import { queryUsersByEmail } from '../../services/user'
 import styles from './styles'
 
-export default function SearchScreen() {
+const SearchScreen = () => {
     const [textInput, setTextInput] = useState('')
     const [searchUsers, setSearchUsers] = useState([])
 
     useEffect(() => {
+        console.log(textInput)
         queryUsersByEmail(textInput)
             .then(setSearchUsers)
     }, [textInput])
@@ -23,11 +24,12 @@ export default function SearchScreen() {
             />
             <FlatList
                 data={searchUsers}
-                renderItem={SearchUserItem}
+                renderItem={({ item }) => <SearchUserItem item={item} />}
                 keyExtractor={(item) => item.id}
 
             />
-
         </SafeAreaView>
     )
 }
+
+export default SearchScreen
