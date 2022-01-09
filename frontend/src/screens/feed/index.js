@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Dimensions, FlatList, View } from 'react-native'
+import useMaterialNavBarHeight from '../../hooks/useMaterialNavBarHeight'
 import PostSingle from '../../components/general/post'
 import { getFeed, getPostsByUserId } from '../../services/posts'
 import styles from './styles'
@@ -47,6 +48,7 @@ export default function FeedScreen({ route }) {
         });
     })
 
+    const feedItemHeight = Dimensions.get('window').height - useMaterialNavBarHeight(profile);
     /**
      * renders the item shown in the FlatList
      * 
@@ -56,7 +58,7 @@ export default function FeedScreen({ route }) {
      */
     const renderItem = ({ item, index }) => {
         return (
-            <View style={{ height: Dimensions.get('window').height, backgroundColor: 'black' }}>
+            <View style={{ height: feedItemHeight, backgroundColor: 'black' }}>
                 <PostSingle item={item} ref={PostSingleRef => (mediaRefs.current[item.id] = PostSingleRef)} />
             </View>
         )

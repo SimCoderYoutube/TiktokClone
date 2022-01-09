@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
-import { getUserById } from '../services/user'
-import { keys, USER_KEY } from './queryKeys'
+import { getIsFollowing } from '../services/user'
+import { keys } from './queryKeys'
 
 
 /**
@@ -12,6 +12,6 @@ import { keys, USER_KEY } from './queryKeys'
  * @param {Object} options to be passed along to useQuery
  * @returns 
  */
-export const useUser = (userId, options = {}) => {
-    return useQuery(keys.user(userId), () => getUserById(userId), options)
+export const useFollowing = (userId, otherUserId, options = {}) => {
+    return useQuery(keys.userFollowing(userId, otherUserId), () => getIsFollowing(userId, otherUserId), options)
 }

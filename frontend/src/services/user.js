@@ -62,3 +62,40 @@ export const getUserById = (id) => new Promise((resolve, reject) => {
         })
         .catch(() => reject())
 })
+
+
+export const getIsFollowing = (userId, otherUserId) => new Promise((resolve, reject) => {
+    firebase.firestore()
+        .collection('user')
+        .doc(userId)
+        .collection('following')
+        .doc(otherUserId)
+        .get()
+        .then((doc) => {
+            resolve(doc.exists)
+        })
+        .catch(() => reject())
+})
+
+export const changeFollowState = ({ otherUserId, isFollowing }) => new Promise((resolve, reject) => {
+    if (isFollowing) {
+        firebase.firestore()
+            .collection('user')
+            .doc(firebase.auth().currentUser.uid)
+            .collection('following')
+            .doc(otherUserId)
+            .delete()
+            .then(() => resolve())
+            .catch(() => reject())
+    } else {
+        firebase.firestore()
+            .collection('user')
+            .doc(firebase.auth().currentUser.uid)
+            .collection('following')
+            .doc(otherUserId)
+            .set({})
+            .then(() => resolve())
+            .catch(() => reject())
+    }
+
+})
