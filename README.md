@@ -36,7 +36,7 @@ Currently the project has the following features:
   * [Search Users](https://www.youtube.com/watch?v=tpPrw8lA6CU&feature=youtu.be&ab_channel=SimCoder)
   * [Like video](https://www.youtube.com/watch?v=YPGjWCWcboc&ab_channel=SimCoder)
   * [Comment Posts](https://www.youtube.com/watch?v=Tcc7hL6xAzs&ab_channel=SimCoder)
-  * [Follow/Unfollow users](https://www.youtube.com/channel/UCQ5xY26cw5Noh6poIE-VBog)
+  * [Follow/Unfollow users](https://youtu.be/uLzNzmhtteU)
 Features to be implmeneted:
   * Redesign
   
