@@ -64,6 +64,13 @@ export const getUserById = (id) => new Promise((resolve, reject) => {
 })
 
 
+/**
+ * Checks if a user is following another by seeing if a follow doc exists.
+ * 
+ * @param {String} userId of the user we want to see if it's following another
+ * @param {String} otherUserId the id of the user that we want to check if it's being followed by another.
+ * @returns {Boolean} if true means the user is indeed following the other User
+ */
 export const getIsFollowing = (userId, otherUserId) => new Promise((resolve, reject) => {
     firebase.firestore()
         .collection('user')
@@ -77,6 +84,15 @@ export const getIsFollowing = (userId, otherUserId) => new Promise((resolve, rej
         .catch(() => reject())
 })
 
+/**
+ * Changes the follow state of two users depending on the current
+ * follow state. 
+ * 
+ * @param {Object} props object containing the relevant info
+ * @param {Boolean} isFollowing current follow state
+ * @param {String} otherUserId the id of the user that we want to check if it's being followed by another.
+ * @returns 
+ */
 export const changeFollowState = ({ otherUserId, isFollowing }) => new Promise((resolve, reject) => {
     if (isFollowing) {
         firebase.firestore()

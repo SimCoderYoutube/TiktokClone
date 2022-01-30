@@ -4,20 +4,21 @@ import { keys } from './queryKeys'
 import firebase from 'firebase'
 
 /**
- * hook meant to fetch a user using react-query in order
- * to cache data and avoid unnecessary queries to be made 
- * to firestore
+ * Mutate the state of the follow cache system
+ * over a pair of users.
+ * In order to do this action optimistically we mutate
+ * the data as soon as the request is made, not waiting for the
+ * firestore response.
  * 
- * @param {String} userId of the user we want to fetch
  * @param {Object} options to be passed along to useQuery
  * @returns 
  */
 export const useFollowingMutation = (options = {}) => {
-    const queryclient = useQueryClient()
+    const queryClient = useQueryClient()
     return useMutation(changeFollowState, {
         ...options,
         onMutate: variables => {
-            queryclient.setQueryData(
+            queryClient.setQueryData(
                 keys.userFollowing(firebase.auth().currentUser.uid, variables.otherUserId),
                 !variables.isFollowing)
         }

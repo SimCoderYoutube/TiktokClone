@@ -9,6 +9,15 @@ import { Feather } from '@expo/vector-icons'
 import { useFollowing } from '../../../hooks/useFollowing'
 import { useFollowingMutation } from '../../../hooks/useFollowingMutation'
 
+/**
+ * Renders the header of the user profile and
+ * handles all of the actions within it like follow, unfollow and
+ * routing to the user settings.
+ * 
+ * @param {Object} props 
+ * @param {Object} props.user information of the user to display 
+ * @returns 
+ */
 export default function ProfileHeader({ user }) {
     const navigation = useNavigation()
 
