@@ -8,6 +8,8 @@ import SearchScreen from '../../screens/search';
 import FeedScreen from '../../screens/feed';
 import FeedNavigation from '../feed';
 import firebase from 'firebase';
+import ChatScreen from '../../screens/chat/list';
+import { useChats } from '../../hooks/useChats';
 const Tab = createMaterialBottomTabNavigator()
 
 const EmptyScreen = () => {
@@ -16,6 +18,8 @@ const EmptyScreen = () => {
 
 
 export default function HomeScreen() {
+    useChats();
+
     return (
         <Tab.Navigator
             barStyle={{ backgroundColor: 'black' }}
@@ -49,7 +53,7 @@ export default function HomeScreen() {
             />
             <Tab.Screen
                 name="Inbox"
-                component={EmptyScreen}
+                component={ChatScreen}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Feather name="message-square" size={24} color={color} />
