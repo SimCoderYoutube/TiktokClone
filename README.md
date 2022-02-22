@@ -37,6 +37,7 @@ Currently the project has the following features:
   * [Like video](https://www.youtube.com/watch?v=YPGjWCWcboc&ab_channel=SimCoder)
   * [Comment Posts](https://www.youtube.com/watch?v=Tcc7hL6xAzs&ab_channel=SimCoder)
   * [Follow/Unfollow users](https://youtu.be/uLzNzmhtteU)
+  * [Chat system](https://youtu.be/uLzNzmhtteU)
 Features to be implmeneted:
   * Redesign
   

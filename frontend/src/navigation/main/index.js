@@ -12,6 +12,7 @@ import EditProfileFieldScreen from '../../screens/profile/edit/field';
 import Modal from '../../components/modal';
 import ProfileScreen from '../../screens/profile';
 import FeedScreen from '../../screens/feed';
+import ChatSingleScreen from '../../screens/chat/single';
 
 const Stack = createStackNavigator()
 
@@ -43,6 +44,7 @@ export default function Route() {
                         <Stack.Screen name="profileOther" component={ProfileScreen} options={{ headerShown: false }} />
                         <Stack.Screen name="editProfile" component={EditProfileScreen} options={{ headerShown: false }} />
                         <Stack.Screen name="editProfileField" component={EditProfileFieldScreen} options={{ headerShown: false }} />
+                        <Stack.Screen name="chatSingle" component={ChatSingleScreen} options={{ headerShown: false }} />
                     </>
                 }
             </Stack.Navigator>
